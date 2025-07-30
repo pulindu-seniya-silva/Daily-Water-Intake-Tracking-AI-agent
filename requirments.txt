@@ -1,0 +1,25 @@
+# LLM & AI Agent Frameworks
+langchain==0.1.12
+openai==1.14.1
+llama-index
+
+# Backend (API)
+fastapi==0.109.2
+uvicorn==0.27.0.post1
+
+# Database
+sqlalchemy==2.0.27
+
+# Data Handling
+pydantic==2.6.4
+python-dotenv==1.0.1
+
+# Time and Scheduling (for daily reminder/AI response)
+schedule==1.2.1
+
+# Optional - For AI Speaking Output
+gTTS==2.5.1
+
+# Optional - For NLP or Custom AI Tasks
+nltk==3.8.1
+transformers==4.41.1
