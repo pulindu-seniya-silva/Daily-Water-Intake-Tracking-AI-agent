@@ -19,6 +19,14 @@ class WaterIntakeAgent:
         you are a hydration assistant. The user has consumed {intake_ml} ml of water today
         provide a hydration status and sugest if they need to drink more water
         """
-        respose = llm.invoke([HumanMessage(content=prompt)])
+        response = llm.invoke([HumanMessage(content=prompt)])
 
+        return response.content
+        
+if __name__ == "__main__":
+    agent = WaterIntakeAgent()
+    intake = 1500
+    feedback = agent.analyze_intake(intake)
+    print(f"Hydration Analysis: {feedback}")
+    
 
