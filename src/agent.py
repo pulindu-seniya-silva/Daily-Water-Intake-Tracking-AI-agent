@@ -1,12 +1,18 @@
 import os 
-from langchain_openai import ChatOpenAI
-from langchain.schema import HumanMessage
+#from langchain_openai import ChatOpenAI
+#from langchain.schema import HumanMessage
 from dotenv import load_dotenv
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-llm = ChatOpenAI(api_key=OPENAI_API_KEY, model="gpt-4", temperature=0.5)
+if OPENAI_API_KEY:
+    from langchain_openai import ChatOpenAI
+    from langchain.schema import HumanMessage
+    llm = ChatOpenAI(api_key=OPENAI_API_KEY, model="gpt-4", temperature=0.5)
+else:
+    llm = None
+    print("⚠️ No OpenAI API Key found. AI responses will be skipped.")
 
 class WaterIntakeAgent:
 
@@ -28,5 +34,5 @@ if __name__ == "__main__":
     intake = 1500
     feedback = agent.analyze_intake(intake)
     print(f"Hydration Analysis: {feedback}")
-    
+
 
