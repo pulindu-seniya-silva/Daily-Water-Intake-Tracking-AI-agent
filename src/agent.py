@@ -9,7 +9,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if OPENAI_API_KEY:
     from langchain_openai import ChatOpenAI
     from langchain.schema import HumanMessage
-    llm = ChatOpenAI(api_key=OPENAI_API_KEY, model="gpt-4", temperature=0.5)
+    llm = ChatOpenAI(api_key=OPENAI_API_KEY, model="gpt-3.5-turbo", temperature=0.5)
 else:
     llm = None
     print("⚠️ No OpenAI API Key found. AI responses will be skipped.")
