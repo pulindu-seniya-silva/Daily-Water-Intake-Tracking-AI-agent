@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 from src.agent import WaterIntakeAgent
-from src.database import log_intake, get_intake_hostory
+from src.database import log_intake, get_intake_history
 
 if "tracker_started" not in st.session_state:
     st.session_state.tracker_started = False
@@ -20,5 +20,7 @@ if not st.session_state.tracker_started:
     if st.button(" start Tracking"):
         st.session_state.tracker_started = True
         st.experimental_rerun()
+    else:
+        st.warning("No water intake data found. please log your intake first.")
 
     
