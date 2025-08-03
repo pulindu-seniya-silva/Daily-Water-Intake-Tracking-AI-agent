@@ -31,8 +31,8 @@ A simple AI-powered Streamlit application that helps users track their daily wat
    git clone https://github.com/pulindu-seniya-silva/Daily-Water-Intake-Tracking-AI-agent-.git
    cd Daily-Water-Intake-Tracking-AI-agent-
 
-This command runs the FastAPI app defined in arc/api.py and reloads automatically on code changes. : uvicorn arc.api:app -reload (Use a seperate terminal)
+**This command runs the FastAPI app defined in arc/api.py and reloads automatically on code changes.** : uvicorn src.api:app -reload (Use a seperate terminal)
 
-run frontend : streamlit run dashboard.py
+**run frontend** : streamlit run dashboard.py
 
 
