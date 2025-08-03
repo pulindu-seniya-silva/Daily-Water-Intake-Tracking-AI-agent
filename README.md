@@ -35,4 +35,10 @@ A simple AI-powered Streamlit application that helps users track their daily wat
 
 **run frontend** : streamlit run dashboard.py
 
+## ✅ App demo 
+<img src="images/1.png" width="850" alt="MongoDB Setup" />
+
+## ✅ App demo
+<img src="images/2.png" width="850" alt="MongoDB Setup" />
+
 
