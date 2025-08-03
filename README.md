@@ -33,6 +33,6 @@ A simple AI-powered Streamlit application that helps users track their daily wat
 
 This command runs the FastAPI app defined in arc/api.py and reloads automatically on code changes. : uvicorn arc.api:app -reload (Use a seperate terminal)
 
-streamlit run dashboard.py
+run frontend : streamlit run dashboard.py
 
 
