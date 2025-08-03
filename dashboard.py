@@ -17,10 +17,70 @@ if not st.session_state.tracker_started:
     
     """)
     
-    if st.button(" start Tracking"):
+    if st.button("start Tracking"):
         st.session_state.tracker_started = True
-        st.experimental_rerun()
+        st.run()
     else:
-        st.warning("No water intake data found. please log your intake first.")
+        st.title("💧 AI water Tracker Dashboard")
+        
+        # Sidebar : Intake Input
+        st.sidebar.header("Log Your Water Intake")
+        user_id = st.sidebar.text_input("User ID", value="user_123")
+        intake_ml = st.sidebar.number_input("Water Intake (ml)", min_value=0, step=100)
+
+        if st.sidebar.button("Submit"):
+            if user_id and intake_ml:
+                log_intake(user_id, intake_ml)
+                st.success(f"Logged {intake_ml} ml for User {user_id}.")
+
+                agent = WaterIntakeAgent()
+                feedback = agent.analyze_intake(intake_ml)
+                st.info(f"AI Feedback: {feedback}")
+
+        #Divider
+        st.markdown("---")
+
+        #History Section
+        st.header("Water Intake History")
+
+        if user_id:
+            history = get_intake_history(user_id)
+            if history:
+                dates = [datetime.strptime(row[1], "%Y-%m-%d") for row in history]
+                values = [row[0] for row in history]
+
+                df = pd.DataFrame({
+                    "Data": dates,
+                    "Water Intake (ml)": values
+                })
+
+                st.dataframe(df)
+                st.line_chart(df, x="Data", y="Water Intake (ml)")
+            else:
+                st.warning("No water intake data found. please log your intake first.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
 
     
