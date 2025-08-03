@@ -21,7 +21,7 @@ def create_tables():
 def log_intake(user_id, intake_ml):
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
-    date_today = datetime.today().strftime('%Y-%m-%d')
+    date_today = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     cursor.execute("INSERT INTO water_intake (user_id, intake_ml, date) VALUES (?, ?, ?)", (user_id, intake_ml, date_today))
     conn.commit()
     conn.close()
